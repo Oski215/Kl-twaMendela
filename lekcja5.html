@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            box-sizing: border-box;
+            border: 2px solid black;
+            width: 40px;
+            height: 40px;
+
+        }
+        table{
+            border: 10px solid yellow;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Statki</h1>
+    <div id ="gameBoard"></div>
+    <script>
+        const gameBoard = document.getElementById("gameBoard")
+        const table = document.createElement('TABLE')
+        for (let indexX = 0; indexX < 12; indexX++) {
+            const tr = document.createElement('TR')
+            for (let indexY = 0; indexY < 12; indexY++) {
+                const td = document.createElement('TD')
+                td.id = ("pozycja"+indexX+'_'+indexY)
+                td.classList.add("state0")
+                
+                
+                td.addEventListener("click", function () {
+                    if (td.classList=='state0'){
+                        td.style.border="18px solid lightblue"
+                        td.style.backgroundColor="black"
+                        td.classList.remove("state0")
+                        td.classList.add("state1")
+
+                        console.log(td)
+                    }
+                })
+                tr.append(td)
+            }
+            table.append(tr)
+        }
+
+
+
+        gameBoard.append(table)
+    </script>
+</body>
+</html>
